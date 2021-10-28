@@ -5,6 +5,9 @@ import utils from './utils'
 const bytecode = require('./bytecode').default
 const abis = require('./abis').default
 
+// @todo Remove this testing change
+// testing
+
 /**
  * This service interacts with the user's wallet.
  * The functionality is on purpose only about sending transaction and returning the corresponding

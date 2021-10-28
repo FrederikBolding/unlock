@@ -1,0 +1,21 @@
+name: newsletter-tests
+
+on:
+  push:
+    paths: 
+      - "newsletter/**"
+  pull_request:
+    paths: 
+      - "newsletter/**"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      BUILDKIT_PROGRESS: plain
+      BLOCKTIME: 0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running tests
+        run: scripts/tests.sh newsletter

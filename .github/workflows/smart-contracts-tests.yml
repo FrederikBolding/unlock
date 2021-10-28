@@ -1,0 +1,21 @@
+name: smart-contracts-tests
+
+on:
+  push:
+    paths: 
+      - "smart-contracts/**"
+  pull_request:
+    paths: 
+      - "smart-contracts/**"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      BUILDKIT_PROGRESS: plain
+      BLOCKTIME: 0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running tests
+        run: scripts/tests.sh smart-contracts

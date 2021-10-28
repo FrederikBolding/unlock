@@ -1,0 +1,21 @@
+name: unlock-protocol-com-tests
+
+on:
+  push:
+    paths: 
+      - "unlock-protocol-com/**"
+  pull_request:
+    paths: 
+      - "unlock-protocol-com/**"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      BUILDKIT_PROGRESS: plain
+      BLOCKTIME: 0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running tests
+        run: scripts/tests.sh unlock-protocol-com
