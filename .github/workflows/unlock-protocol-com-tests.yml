@@ -1,12 +1,12 @@
-name: Unlock-JS
+name: unlock-protocol-com-tests
 
 on:
   push:
     paths: 
-      - "packages/unlock-js/**"
+      - "unlock-protocol-com/**"
   pull_request:
     paths: 
-      - "packages/unlock-js/**"
+      - "unlock-protocol-com/**"
 
 jobs:
   run-tests:
@@ -18,4 +18,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Running tests
-        run: scripts/tests.sh packages/unlock-js
+        run: scripts/tests.sh unlock-protocol-com

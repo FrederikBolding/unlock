@@ -1,0 +1,21 @@
+name: paywall-lib-tests
+
+on:
+  push:
+    paths: 
+      - "packages/paywall/**"
+  pull_request:
+    paths: 
+      - "packages/paywall/**"
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_BUILDKIT: 1
+      BUILDKIT_PROGRESS: plain
+      BLOCKTIME: 0
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running tests
+        run: scripts/tests.sh packages/paywall
